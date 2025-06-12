@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #000;
+    position: relative; /* Necesario para el pseudo-elemento */
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Cambiado a fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background: url(img/fondo3.jpeg) no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Coloca detrás del contenido */
+}
+
+.header {
+    padding: 20px 50px;
+    position: relative; /* Contenedor para el logo */
+}
+
+.logo {
+    width: 120px;
+}
+
+.form-wrapper {
+    position: relative;
+    margin: 90px auto 0; /* Centrado con margen superior */
+    border-radius: 4px;
+    padding: 70px;
+    width: 450px;
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1; /* Asegura que esté sobre el fondo */
+}
+
+.form-wrapper h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.form-control {
+    height: 50px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-control input {
+    height: 100%;
+    width: 100%;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+.form-control label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+/* Corrección clave: selector para animación de labels */
+.form-control input:focus + label,
+.form-control input:not(:placeholder-shown) + label {
+    top: 7px;
+    font-size: 0.75rem;
+    transform: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1rem;
+    background: #e50914;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.login-btn:hover {
+    background: #c40812;
+}
+
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    color: #b3b3b3;
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.help-link {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+.login-options {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.separator {
+    position: relative;
+    color: #8c8c8c;
+    display: block;
+    margin: 25px 0;
+}
+
+.separator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #333;
+    z-index: -1;
+}
+
+.separator span {
+    background: rgba(0,0,0,0.75);
+    position: relative;
+    padding: 0 15px;
+}
+
+.code-login {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.code-login:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.6);
+}
+
+.signup-section {
+    margin-top: 16px;
+    color: #737373;
+}
+
+.signup-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.signup-section a:hover {
+    text-decoration: underline;
+}
+
+.captcha-notice {
+    margin-top: 13px;
+    color: #8c8c8c;
+    font-size: 13px;
+}
+
+.captcha-notice a {
+    color: #0071eb;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 740px) {
+    body::before {
+        background-attachment: scroll; /* Fondo no fijo en móviles */
+    }
+
+    .form-wrapper {
+        padding: 40px 20px;
+        width: 90%;
+    }
+    
+    .header {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+}
